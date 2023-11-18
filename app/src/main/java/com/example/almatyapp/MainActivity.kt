@@ -25,8 +25,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val windowSize = calculateWindowSizeClass(this)
                     AlmatyApp(
-                        windowSize = windowSize.widthSizeClass
-                    ) { finish() }
+                        windowSize = windowSize.widthSizeClass,
+                        onBackPressed = { finish() }
+                    )
                 }
             }
         }

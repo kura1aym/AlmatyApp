@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.almatyapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.almatyapp"
@@ -61,7 +61,6 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material3:material3-window-size-class")
     implementation("androidx.navigation:navigation-compose:2.5.3")
-    implementation("org.jetbrains.compose:desktop:VERSION")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

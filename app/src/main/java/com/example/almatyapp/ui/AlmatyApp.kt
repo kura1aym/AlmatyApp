@@ -77,20 +77,28 @@ fun AlmatyApp(
 
 @Composable
 fun CategoryListScreen(onCategorySelected: (String) -> Unit) {
-    val categories = listOf("Category 1", "Category 2", "Category 3")
+    val categories = LocalRecomendationDataProvider.recommendations
+        .map { it.category }
+        .distinct()
 
-    LazyColumn {
-        items(categories) { category ->
-            Text(
-                text = category,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onCategorySelected(category) }
-                    .padding(16.dp),
-                fontSize = 18.sp
-            )
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        LazyColumn {
+            items(categories) { category ->
+                Text(
+                    text = category,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onCategorySelected(category) }
+                        .padding(16.dp),
+                    fontSize = 18.sp
+                )
+            }
         }
     }
+
 }
 
 @Composable
@@ -162,7 +170,7 @@ fun CategoryListScreenPreview() {
 @Preview
 @Composable
 fun RecommendationListScreenPreview() {
-    RecommendationListScreen("Category 1") {
+    RecommendationListScreen("Coffee Shop") {
     }
 }
 
